@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST"> {% csrf_token %}
+	{% if length == 0 %}
+	<h2>You didn't have any labels</h2>
+	
+	
+	{% else %}
+	<h2> Please choose the label you want to rename. </h2>
+	Your current Labels are:
+	<br>
+	<br>
+	{% for i in all_labels %}
+	<label for="radio"> {{i.labels}}: </label>
+	<input id="radio" type="radio" name="selected" value="{{i.labels}}" required>
+	<br>
+	<br>
+	{% endfor %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2> Please enter the new name for your label. </h2>
+
+	<label for = "labelEntry">New Label name: </label>
+	<input id = "labelEntry" type = "text" name = "labelname" placeholder = "Your new label name" required/>
+
+	<br>
+	<br>
+	<input type = 'submit' value = 'Update'/>
+	{% endif %}
+
+
+
+	
+</form>
+
+	
+{% endblock %}

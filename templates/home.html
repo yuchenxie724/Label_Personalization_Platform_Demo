@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<!-- <form action = '.' method = 'POST'> {% csrf_token %}
+	<h2> Login </h2>
+	<label for = "usernameEntry">Username: </label>
+	<input id = "usernameEntry" type = "text" name = "username" placeholder = "Your username"/>
+	<br>
+	<br>
+	<input type = "button" value = "Login">
+</form> -->
+
+
+
+{% block content %}
+	{% if messages %}
+    {% for message in messages %}
+        <h3 style = "color:red">{{ message }}</h3>
+    {% endfor %}
+	{% endif %}
+	<form method = 'POST'> {% csrf_token %}
+		<!-- {{ form.as_p }} -->
+		<h2> Login </h2>
+
+		<label for = "usernameEntry">Username: </label>
+		<input id = "usernameEntry" type = "text" name = "username" placeholder = "Your username" required/>
+
+		<!-- <label for="usernameEntry">Username: </label>
+        <input id="usernameEntry" type="text" name="usernameSubmitted"/> -->
+        <br>
+        <br>
+		<input type = 'submit' value = 'Login'/>
+		
+	</form>
+	
+{% endblock %}

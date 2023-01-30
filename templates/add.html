@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form method = 'POST'> {% csrf_token %}
+		<h2> Please enter the label you want to add. </h2>
+
+		<label for = "labelEntry">Label name: </label>
+		<input id = "labelEntry" type = "text" name = "labelname" placeholder = "Your new label" required/>
+
+        <br>
+        <br>
+		<input type = 'submit' value = 'Update'/>
+		
+	</form>
+	
+
+
+{% endblock %}

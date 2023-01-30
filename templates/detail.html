@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>
+	Hey {{ new_username }},
+</h2>
+
+<h3> 
+	{% if length == 0 %}
+	You didn't have any labels
+	{% else %}
+	Your Labels are:
+	<p>
+		{% for i in all_labels %}
+			{{i.labels}},
+		{% endfor %}
+	</p>
+	{% endif %}
+</h3>
+
+
+<br>
+<br>
+{% if messages %}
+    {% for message in messages %}
+        <h3 style = "color:red">{{ message }}</h3>
+    {% endfor %}
+{% endif %}
+<br>
+<form action = "http://127.0.0.1:8000/add">
+<input type = "submit" value = "Add Labels">
+</form>
+<br>
+<br>
+<form action = "http://127.0.0.1:8000/delete">
+<input type = "submit" value = "Delete Labels">
+</form>
+<br>
+<br>
+<form action = "http://127.0.0.1:8000/rename">
+<input type = "submit" value = "Rename Labels">
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href = "http://127.0.0.1:8000/"> Log out </a>
+{% endblock %}
